@@ -13,7 +13,6 @@ body {
   max-width: 1000px;
 }
 
-
 /* Style the Nickname and Project Code headings */
 h4 {
   font-weight: bold;
@@ -24,13 +23,11 @@ h4 {
   color: #fff;
 }
 
-
 /* Adjust the width and margin of the sliders */
 .slider {
   width: 300px;
   margin: 10px 0;
 }
-
 
 /* Adjust the styles of the radio buttons */
 .radio-container {
@@ -48,7 +45,6 @@ h4 {
   margin-right: 5px;
   border-color: #eee;
 }
-
 
 /* Style the buttons */
 button {
@@ -68,7 +64,6 @@ button {
 button:hover {
   background-color: #555;
 }
-
 
 /* Adjust the styles of the spinner */
 .spinner-container .spinner-border {
@@ -92,7 +87,6 @@ button:hover {
   margin-left: 10px;
 }
 
-
 /* Adjust the styles of the dropdown items */
 .select-container {
   display: flex;
@@ -115,7 +109,6 @@ select {
   cursor: pointer;
 }
 
-
 /* Adjust the color of the hyperlinks */
 a {
   color: #a3d3ff;
@@ -128,7 +121,6 @@ a:hover {
 .visually-hidden {
   display: none;
 }
-
 
 /* Styling the textbox */
 .feedback textarea {
