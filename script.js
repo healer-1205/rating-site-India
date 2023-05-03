@@ -242,3 +242,81 @@ window.onload = function () {
       })
   })
 }
+
+$("#toggle-modal-responsibility").on("click", function () {
+  const id = $(this).closest("div").attr("id")
+  const title = $(`#${id} > .title`).text()
+  const content = $(`#${id} > .content`).text()
+  $("#modal-title").text(title)
+  $("#modal-content").text(content)
+  $("#popup-modal").addClass("show")
+})
+
+$("#close-modal").on("click", function () {
+  $("#popup-modal").removeClass("show")
+})
+
+$("#toggle-modal-communication").on("click", function () {
+  const id = $(this).closest("div").attr("id")
+  const title = $(`#${id} > .title`).text()
+  const content = $(`#${id} > .content`).text()
+  $("#modal-title").text(title)
+  $("#modal-content").text(content)
+  $("#popup-modal").addClass("show")
+})
+
+$("#close-modal").on("click", function () {
+  $("#popup-modal").removeClass("show")
+})
+
+$("#toggle-modal-professionalism").on("click", function () {
+  const id = $(this).closest("div").attr("id")
+  const title = $(`#${id} > .title`).text()
+  const content = $(`#${id} > .content`).text()
+  $("#modal-title").text(title)
+  $("#modal-content").text(content)
+  $("#popup-modal").addClass("show")
+})
+
+$("#close-modal").on("click", function () {
+  $("#popup-modal").removeClass("show")
+})
+
+$("#toggle-modal-platform-knowledge").on("click", function () {
+  const id = $(this).closest("div").attr("id")
+  const title = $(`#${id} > .title`).text()
+  const content = $(`#${id} > .content`).text()
+  $("#modal-title").text(title)
+  $("#modal-content").text(content)
+  $("#popup-modal").addClass("show")
+})
+
+$("#close-modal").on("click", function () {
+  $("#popup-modal").removeClass("show")
+})
+
+$("#toggle-modal-critical-thinking").on("click", function () {
+  const id = $(this).closest("div").attr("id")
+  const title = $(`#${id} > .title`).text()
+  const content = $(`#${id} > .content`).text()
+  $("#modal-title").text(title)
+  $("#modal-content").text(content)
+  $("#popup-modal").addClass("show")
+})
+
+$("#close-modal").on("click", function () {
+  $("#popup-modal").removeClass("show")
+})
+
+$("#toggle-modal-proactiveness").on("click", function () {
+  const id = $(this).closest("div").attr("id")
+  const title = $(`#${id} > .title`).text()
+  const content = $(`#${id} > .content`).text()
+  $("#modal-title").text(title)
+  $("#modal-content").text(content)
+  $("#popup-modal").addClass("show")
+})
+
+$("#close-modal").on("click", function () {
+  $("#popup-modal").removeClass("show")
+})

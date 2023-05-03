@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>ESL Freelancer Rating System</title>
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -13,172 +15,388 @@
   </head>
 
   <body>
-    <h2>Rate your Freelancer</h2>
-    <br />
-    <h4>Nickname:</h4>
-    <div class="form-container">
-      <div class="form-item">
-        <div class="select-container">
-          <select id="freelancers" required>
-            <option value="" disabled selected>Select a Freelancer</option>
-          </select>
-          <div
-            id="freelancers-spinner"
-            class="spinner-container visually-hidden"
-          >
-            <div class="spinner-border" role="status"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h1 class="text-3xl font-medium">Rate your Freelancer</h1>
 
-    <br />
-
-    <h4>Project Code:</h4>
-    <div class="form-container">
-      <div class="form-item">
-        <div class="select-container">
-          <select id="project-code" required>
-            <option value="" disabled selected>Select a Project Code</option>
-          </select>
-          <div id="project-spinner" class="spinner-container visually-hidden">
-            <div class="spinner-border" role="status"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p>
-      If you don't see your project code, please
-      <a
-        href="https://docs.google.com/spreadsheets/d/1X5TTIhyLhziBx4hl9kniQlWBMRHXmgnyg14iG_jHo8I/edit?usp=sharing"
-        target="_blank"
-        >visit this link</a
+    <div
+      class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3"
+      role="alert"
+    >
+      <span class="block sm:inline"
+        >If you don't see your project code, please
+        <a
+          href="https://docs.google.com/spreadsheets/d/1X5TTIhyLhziBx4hl9kniQlWBMRHXmgnyg14iG_jHo8I/edit?usp=sharing"
+          target="_blank"
+          >visit this link</a
+        >
+        and add your project with all the relevant information, then refresh
+        this page.</span
       >
-      and add your project with all the relevant information, then refresh this
-      page.
-    </p>
+      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <svg
+          class="fill-current h-6 w-6 text-red-500"
+          role="button"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+        >
+          <title>Close</title>
+          <path
+            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+          />
+        </svg>
+      </span>
+    </div>
 
-    <h4>Supervisors:</h4>
-    <div class="form-container">
-      <div class="form-item">
-        <div class="select-container">
-          <select id="supervisors" required>
-            <option value="" disabled selected>Select your name</option>
-          </select>
-          <div
-            id="supervisors-spinner"
-            class="spinner-container visually-hidden"
-          >
-            <div class="spinner-border" role="status"></div>
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-3 mt-8">
+      <div class="flex justify-start items-center">
+        <span class="mr-3 font-medium text-lg">Nickname:</span>
+        <div class="form-container">
+          <div class="form-item">
+            <div class="select-container">
+              <select id="freelancers" required>
+                <option value="" disabled selected>Select a Freelancer</option>
+              </select>
+              <div
+                id="freelancers-spinner"
+                class="spinner-container visually-hidden"
+              >
+                <div class="spinner-border" role="status"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-start items-center sm:mt-0 mt-3">
+        <span class="mr-3 font-medium text-lg">Project Code:</span>
+        <div class="form-container">
+          <div class="form-item">
+            <div class="select-container">
+              <select id="project-code" required>
+                <option value="" disabled selected>
+                  Select a Project Code
+                </option>
+              </select>
+              <div
+                id="project-spinner"
+                class="spinner-container visually-hidden"
+              >
+                <div class="spinner-border" role="status"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-start items-center sm:mt-0 mt-3">
+        <span class="mr-3 font-medium text-lg">Supervisors:</span>
+        <div class="form-container">
+          <div class="form-item">
+            <div class="select-container">
+              <select id="supervisors" required>
+                <option value="" disabled selected>Select your name</option>
+              </select>
+              <div
+                id="supervisors-spinner"
+                class="spinner-container visually-hidden"
+              >
+                <div class="spinner-border" role="status"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <br />
-    <br />
-    <h4>Responsibility: <span id="responsibility-value">5</span></h4>
-    <div class="slider" id="responsibility-slider"></div>
-    <p>
-      Responsibility refers to an individual's ability to reliably execute
-      tasks, follow instructions, and exhibit autonomy in completing repetitive
-      assignments. This includes qualities such as punctuality, consistency,
-      attentiveness, and responsiveness to assigned tasks. A responsible
-      individual shows up on time, remains present throughout the entirety of an
-      event, and actively participates in executing their assigned duties. These
-      traits are essential for ensuring the successful completion of any task or
-      project.
-    </p>
-    <br />
-    <h4>Communication: <span id="communication-value">5</span></h4>
-    <div class="slider" id="communication-slider"></div>
-    <p>
-      Effective communication requires a range of skills, including internal and
-      external communication, interpersonal skills, and the ability to be
-      concise, clear, and efficient in conveying messages. It is critical for
-      live events, where it is essential to convey critical messages to relevant
-      parties in a clear and efficient manner. In this context, good
-      communication skills include the ability to think on one's feet, remain
-      calm under pressure, and effectively communicate with a diverse range of
-      departments involved.
-    </p>
-    <br />
-    <h4>Professionalism: <span id="professionalism-value">5</span></h4>
-    <div class="slider" id="professionalism-slider"></div>
-    <p>
-      Professionalism is characterized by a set of behaviors and attitudes that
-      reflect a high degree of competence, integrity, and respect for oneself
-      and others. In the workplace or in any professional setting, it is
-      important to present oneself in a manner that is both confident and
-      approachable, and to demonstrate a commitment to excellence in all aspects
-      of one's work. A professional person is able to demonstrate empathy and
-      understanding, and maintain a positive attitude even in challenging
-      situations.
-    </p>
-    <br />
-    <h4>Platform Knowledge: <span id="platform-knowledge-value">5</span></h4>
-    <div class="slider" id="platform-knowledge-slider"></div>
-    <p>
-      Platform knowledge refers to an individual's proficiency in handling
-      issues that may arise on a specific platform, such as ESL Play or FACEIT.
-      It involves being familiar with the various functionalities of the
-      platform, including the ability to start cups and matches, manage
-      administrative tasks, and respond to support or protest tickets. A person
-      with strong platform knowledge is able to troubleshoot and resolve issues
-      that players may encounter during a tournament.
-    </p>
-    <br />
-    <h4>Critical Thinking: <span id="critical-thinking-value">5</span></h4>
-    <div class="slider" id="critical-thinking-slider"></div>
-    <p>
-      Critical thinking involves the ability to gather, analyze, and evaluate
-      information in order to make well-reasoned decisions and recommendations.
-      It requires the skill of identifying the root cause of a problem and
-      developing effective solutions to resolve both internal and external
-      disputes and issues. In addition, critical thinking involves making
-      decisions that are consistent and justifiable, ensuring that similar cases
-      are handled in the same way in the future.
-    </p>
-    <br />
-    <h4>Proactiveness: <span id="proactiveness-value">5</span></h4>
-    <div class="slider" id="proactiveness-slider"></div>
-    <p>
-      Proactiveness is the quality of taking the initiative to anticipate
-      potential issues or opportunities and act on them without being asked or
-      prompted. It goes beyond simply completing the tasks assigned and aims to
-      exceed expectations by identifying areas for improvement or taking action
-      to prevent potential problems. A proactive freelancer takes ownership of
-      their work and consistently seeks to provide exceptional service by
-      staying ahead of tasks.
-    </p>
-    <br />
-    <h4><b>Difficulty of the Event: </b></h4>
-    <br />
-    <div class="radio-container">
-      <input type="radio" id="easy" name="difficulty" value="0.92" />
-      <label for="easy">Easy</label>
-      <br />
-      <input type="radio" id="normal" name="difficulty" value="1" checked />
-      <label for="normal">Normal</label>
-      <br />
-      <input type="radio" id="hard" name="difficulty" value="1.12" />
-      <label for="hard">Hard</label>
+
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-3 mt-8">
+      <div
+        class="shadow-md rounded-md border border-solid border-gray-500 p-5 hover:bg-gray-800"
+        id="responsibility"
+      >
+        <span class="text-lg font-medium"
+          >Responsibility: <span id="responsibility-value">5</span></span
+        >
+        <p class="hidden title">Responsibility</p>
+        <div class="slider m-auto mt-3" id="responsibility-slider"></div>
+        <p class="mt-3 cursor-pointer" id="toggle-modal-responsibility">
+          Responsibility refers to an individual's ability to reliably execute
+          tasks, follow instructions, and exhibit autonomy in...
+        </p>
+        <p class="mt-3 hidden content">
+          Responsibility refers to an individual's ability to reliably execute
+          tasks, follow instructions, and exhibit autonomy in completing
+          repetitive assignments. This includes qualities such as punctuality,
+          consistency, attentiveness, and responsiveness to assigned tasks. A
+          responsible individual shows up on time, remains present throughout
+          the entirety of an event, and actively participates in executing their
+          assigned duties. These traits are essential for ensuring the
+          successful completion of any task or project.
+        </p>
+      </div>
+
+      <div
+        class="shadow-md rounded-md border border-solid border-gray-500 p-5 lg:mt-0 mt-3 hover:bg-gray-800"
+        id="communication"
+      >
+        <span class="text-lg font-medium"
+          >Communication: <span id="communication-value">5</span></span
+        >
+        <p class="hidden title">Communication</p>
+        <div class="slider m-auto mt-3" id="communication-slider"></div>
+        <p class="mt-3 cursor-pointer" id="toggle-modal-communication">
+          Effective communication requires a range of skills, including internal
+          and external communication, and the ability to be...
+        </p>
+        <p class="mt-3 hidden content">
+          Effective communication requires a range of skills, including internal
+          and external communication, interpersonal skills, and the ability to
+          be concise, clear, and efficient in conveying messages. It is critical
+          for live events, where it is essential to convey critical messages to
+          relevant parties in a clear and efficient manner. In this context,
+          good communication skills include the ability to think on one's feet,
+          remain calm under pressure, and effectively communicate with a diverse
+          range of departments involved.
+        </p>
+      </div>
+
+      <div
+        class="shadow-md rounded-md border border-solid border-gray-500 p-5 lg:mt-0 mt-3 hover:bg-gray-800"
+        id="professionalism"
+      >
+        <span class="text-lg font-medium"
+          >Professionalism: <span id="professionalism-value">5</span></span
+        >
+        <p class="hidden title">Professionalism</p>
+        <div class="slider m-auto mt-3" id="professionalism-slider"></div>
+        <p class="mt-3 cursor-pointer" id="toggle-modal-professionalism">
+          Professionalism is characterized by a set of behaviors and attitudes
+          that reflect a high degree of competence, integrity, and...
+        </p>
+        <p class="mt-3 hidden content">
+          Professionalism is characterized by a set of behaviors and attitudes
+          that reflect a high degree of competence, integrity, and respect for
+          oneself and others. In the workplace or in any professional setting,
+          it is important to present oneself in a manner that is both confident
+          and approachable, and to demonstrate a commitment to excellence in all
+          aspects of one's work. A professional person is able to demonstrate
+          empathy and understanding, and maintain a positive attitude even in
+          challenging situations.
+        </p>
+      </div>
     </div>
-    <br />
-    <br />
+
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-3 mt-8">
+      <div
+        class="shadow-md rounded-md border border-solid border-gray-500 p-5 hover:bg-gray-800"
+        id="platform-knowledge"
+      >
+        <span class="text-lg font-medium"
+          >Platform Knowledge:
+          <span id="platform-knowledge-value">5</span></span
+        >
+        <p class="hidden title">Platform Knowledge</p>
+        <div class="slider m-auto mt-3" id="platform-knowledge-slider"></div>
+        <p class="mt-3 cursor-pointer" id="toggle-modal-platform-knowledge">
+          Platform knowledge refers to an individual's proficiency in handling
+          issues that may arise on a specific platform, such as ESL...
+        </p>
+        <p class="mt-3 hidden content">
+          Platform knowledge refers to an individual's proficiency in handling
+          issues that may arise on a specific platform, such as ESL Play or
+          FACEIT. It involves being familiar with the various functionalities of
+          the platform, including the ability to start cups and matches, manage
+          administrative tasks, and respond to support or protest tickets. A
+          person with strong platform knowledge is able to troubleshoot and
+          resolve issues that players may encounter during a tournament.
+        </p>
+      </div>
+
+      <div
+        class="shadow-md rounded-md border border-solid border-gray-500 p-5 lg:mt-0 mt-3 hover:bg-gray-800"
+        id="critical-thinking"
+      >
+        <span class="text-lg font-medium"
+          >Critical Thinking: <span id="critical-thinking-value">5</span></span
+        >
+        <p class="hidden title">Critical Thinking</p>
+        <div class="slider m-auto mt-3" id="critical-thinking-slider"></div>
+        <p class="mt-3 cursor-pointer" id="toggle-modal-critical-thinking">
+          Critical thinking involves the ability to gather, analyze, and
+          evaluate information in order to make well-reasoned decisions...
+        </p>
+        <p class="mt-3 hidden content">
+          Critical thinking involves the ability to gather, analyze, and
+          evaluate information in order to make well-reasoned decisions and
+          recommendations. It requires the skill of identifying the root cause
+          of a problem and developing effective solutions to resolve both
+          internal and external disputes and issues. In addition, critical
+          thinking involves making decisions that are consistent and
+          justifiable, ensuring that similar cases are handled in the same way
+          in the future.
+        </p>
+      </div>
+
+      <div
+        class="shadow-md rounded-md border border-solid border-gray-500 p-5 lg:mt-0 mt-3 hover:bg-gray-800"
+        id="proactiveness"
+      >
+        <span class="text-lg font-medium"
+          >Proactiveness: <span id="proactiveness-value">5</span></span
+        >
+        <p class="hidden title">Proactiveness</p>
+        <div class="slider m-auto mt-3" id="proactiveness-slider"></div>
+        <p class="mt-3 cursor-pointer" id="toggle-modal-proactiveness">
+          Proactiveness is the quality of taking the initiative to anticipate
+          potential issues or opportunities and act on them...
+        </p>
+        <p class="mt-3 hidden content">
+          Proactiveness is the quality of taking the initiative to anticipate
+          potential issues or opportunities and act on them without being asked
+          or prompted. It goes beyond simply completing the tasks assigned and
+          aims to exceed expectations by identifying areas for improvement or
+          taking action to prevent potential problems. A proactive freelancer
+          takes ownership of their work and consistently seeks to provide
+          exceptional service by staying ahead of tasks.
+        </p>
+      </div>
+    </div>
+
+    <p class="mt-8 font-medium text-lg">Difficulty of the Event:</p>
+    <fieldset class="mt-4">
+      <legend class="sr-only">Notification method</legend>
+      <div
+        class="sm:flex sm:items-center sm:space-x-10 flex justify-center items-center"
+      >
+        <div class="flex items-center">
+          <input
+            id="email"
+            name="notification-method"
+            type="radio"
+            checked
+            class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+          />
+          <label
+            for="email"
+            class="ml-3 block text-sm font-medium leading-6 text-gray-900 text-white"
+            >Email</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            id="sms"
+            name="notification-method"
+            type="radio"
+            class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+          />
+          <label
+            for="sms"
+            class="ml-3 block text-sm font-medium leading-6 text-gray-900 text-white"
+            >Phone (SMS)</label
+          >
+        </div>
+        <div class="flex items-center">
+          <input
+            id="push"
+            name="notification-method"
+            type="radio"
+            class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+          />
+          <label
+            for="push"
+            class="ml-3 block text-sm font-medium leading-6 text-gray-900 text-white"
+            >Push notification</label
+          >
+        </div>
+      </div>
+    </fieldset>
+
     <div class="feedback">
-      <h4>Feedback:</h4>
+      <p class="mt-8 font-medium text-lg">Feedback:</p>
       <textarea
         id="feedback"
         name="feedback"
         placeholder="Any additional feedback (optional)"
-        maxlength="5000"
+        class="w-3/5"
       ></textarea>
     </div>
     <br />
     <div class="submit">
-      <button id="submit">Submit</button>
+      <button
+        id="submit"
+        type="button"
+        class="rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20"
+      >
+        Submit
+      </button>
       <div id="submit-spinner" class="spinner-container visually-hidden">
         <div class="spinner-border" role="status"></div>
+      </div>
+    </div>
+
+    <div
+      class="relative z-10 hidden"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+      id="popup-modal"
+    >
+      <!--
+    Background backdrop, show/hide based on modal state.
+
+    Entering: "ease-out duration-300"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in duration-200"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+      <div
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      ></div>
+
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div
+          class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+        >
+          <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6"
+          >
+            <div>
+              <div class="mt-3 text-center sm:mt-5">
+                <h3
+                  class="text-base font-semibold leading-6 text-gray-900"
+                  id="modal-title"
+                >
+                  Payment successful
+                </h3>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-500" id="modal-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Consequatur amet labore.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 sm:mt-6">
+              <button
+                type="button"
+                class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                id="close-modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
