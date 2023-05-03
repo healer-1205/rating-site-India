@@ -320,3 +320,7 @@ $("#toggle-modal-proactiveness").on("click", function () {
 $("#close-modal").on("click", function () {
   $("#popup-modal").removeClass("show")
 })
+
+function handleCloseNotification() {
+  $("#notification").hide()
+}
